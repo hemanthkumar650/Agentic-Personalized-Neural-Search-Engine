@@ -8,7 +8,7 @@ Production-style ML system for search relevance, personalization, recommendation
 
 ![Dashboard](docs/screenshots/1-dashboard.png)
 
-2. Search results: personalized strategy with score distribution histogram (deviation from mean) and results table (top result highlighted, similar/click/cart/buy).
+2. Conversational commerce: chat-style search and recommendations (e.g. "wireless headphones" or "suggest something for me").
 
 ![Search results](docs/screenshots/2-search-results.png)
 
@@ -16,7 +16,7 @@ Production-style ML system for search relevance, personalization, recommendation
 
 ![Recommendations](docs/screenshots/3-recommendations.png)
 
-4. Conversational commerce: chat-style search and recommendations (e.g. "wireless headphones" or "suggest something for me").
+4. Search results: personalized strategy with score distribution histogram (deviation from mean) and results table (top result highlighted, similar/click/cart/buy).
 
 ![Conversational commerce](docs/screenshots/4-conversational.png)
 
