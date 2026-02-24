@@ -1,9 +1,11 @@
-﻿# Python runtime junk
+# Python runtime junk
 .venv/
 __pycache__/
 *.pyc
 *.pyo
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # Frontend build/deps
 frontend/node_modules/
@@ -13,6 +15,16 @@ node_modules/
 
 # Local secrets
 frontend/.env.local
+.env
+
+# Runtime artifacts
+runs/logs/
+runs/analysis/
+runs/*.json
+*.log
+
+# Local model binaries
+models/*.pkl
 
 # OS/editor
 .DS_Store

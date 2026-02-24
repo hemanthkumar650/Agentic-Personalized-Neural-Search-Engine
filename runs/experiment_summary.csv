@@ -1,0 +1,17 @@
+timestamp,run_type,NDCG@10,MRR,Recall@10,Precision@10,metadata
+2026-02-24T00:34:39.184743,ablation_bm25,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""BM25""}"
+2026-02-24T00:34:39.187177,ablation_dense,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Dense""}"
+2026-02-24T00:34:39.188226,ablation_hybrid,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Hybrid""}"
+2026-02-24T00:34:39.189226,ablation_ranker,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Ranker""}"
+2026-02-24T00:34:39.190877,ablation_personalized,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Personalized""}"
+2026-02-24T00:35:47.890048,ablation_bm25,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""BM25""}"
+2026-02-24T00:35:47.891031,ablation_dense,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Dense""}"
+2026-02-24T00:35:47.892028,ablation_hybrid,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Hybrid""}"
+2026-02-24T00:35:47.893375,ablation_ranker,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Ranker""}"
+2026-02-24T00:35:47.894373,ablation_personalized,1.000000,1.000000,1.000000,0.100000,"{""strategy"": ""Personalized""}"
+2026-02-24T00:36:10.620062,evaluate_pipeline,1.000000,1.000000,1.000000,0.100000,{}
+2026-02-24T01:04:07.309846,train_ranker,,,,,"{""train_samples"": ""1540"", ""train_queries"": ""154""}"
+2026-02-24T01:09:56.327586,train_ranker,,,,,"{""train_samples"": ""1540"", ""train_queries"": ""154""}"
+2026-02-24T01:23:21.882638,train_ranker,,,,,"{""train_samples"": ""1540"", ""train_queries"": ""154""}"
+2026-02-24T01:31:34.334286,train_ranker,,,,,"{""train_samples"": ""1540"", ""train_queries"": ""154""}"
+2026-02-24T01:52:35.155496,train_ranker,,,,,"{""train_samples"": ""1540"", ""train_queries"": ""154""}"

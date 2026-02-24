@@ -6,6 +6,7 @@ import numpy as np
 
 from agents.retrieval_agent import RetrievalAgent
 from models.ranker import LambdaMARTRanker
+from utils.experiment_tracking import log_experiment
 from utils.feature_engineering import build_feature_context, build_feature_row, to_feature_matrix
 from utils.preprocessing import load_data
 
@@ -58,11 +59,16 @@ def train() -> None:
 
     Path("runs").mkdir(exist_ok=True)
     artifact = Path("runs") / f"{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}_train_ranker.json"
-    artifact.write_text(json.dumps({"samples": int(X.shape[0]), "queries": len(group)}, indent=2), encoding="utf-8")
+    train_meta = {"samples": int(X.shape[0]), "queries": len(group)}
+    artifact.write_text(json.dumps(train_meta, indent=2), encoding="utf-8")
+    log_experiment(
+        run_type="train_ranker",
+        metrics={},
+        metadata={"train_samples": str(X.shape[0]), "train_queries": str(len(group))},
+    )
     print("Saved models/ranker.pkl")
     print(f"Saved run artifact: {artifact}")
 
 
 if __name__ == "__main__":
     train()
-

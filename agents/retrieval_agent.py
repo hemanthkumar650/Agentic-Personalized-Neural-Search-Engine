@@ -1,6 +1,6 @@
 import pickle
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 import numpy as np
 import pandas as pd
@@ -111,4 +111,31 @@ class RetrievalAgent:
         if self.embeddings is None:
             return {}
         return {pid: self.embeddings[i] for i, pid in enumerate(self.id_by_pos)}
+
+    def similar_by_content(self, product_id: str, top_k: int = 5) -> List[Tuple[str, float]]:
+        """Content intelligence: return product IDs most similar by embedding (title+description)."""
+        if self.embeddings is None or self.index is None:
+            return []
+        pid = str(product_id).strip()
+        if pid not in self.id_by_pos and pid.isdigit():
+            alt = "P" + pid.zfill(3)
+            if alt in self.id_by_pos:
+                pid = alt
+        if pid not in self.id_by_pos:
+            return []
+        pos = self.id_by_pos.index(pid)
+        vec = self.embeddings[pos : pos + 1].astype(np.float32)
+        k = min(top_k + 1, len(self.id_by_pos))
+        scores, idxs = self.index.search(vec, k)
+        out: List[Tuple[str, float]] = []
+        for i, idx in enumerate(idxs[0]):
+            if idx < 0 or idx >= len(self.id_by_pos):
+                continue
+            other = self.id_by_pos[idx]
+            if other == pid:
+                continue
+            out.append((other, float(scores[0][i])))
+            if len(out) >= top_k:
+                break
+        return out
 

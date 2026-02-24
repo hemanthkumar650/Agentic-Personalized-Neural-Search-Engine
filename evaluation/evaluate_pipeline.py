@@ -1,12 +1,18 @@
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from agents.personalization_agent import PersonalizationAgent
 from agents.ranking_agent import RankingAgent
 from agents.retrieval_agent import RetrievalAgent
 from evaluation.metrics import mean, mrr_at_k, ndcg_at_k, precision_at_k, recall_at_k
 from models.user_embedding import UserEmbeddingModel
+from utils.experiment_tracking import log_experiment
 from utils.feature_engineering import build_feature_context
 from utils.preprocessing import load_data
 
@@ -56,6 +62,7 @@ def evaluate() -> dict:
     Path("runs").mkdir(exist_ok=True)
     out_file = Path("runs") / f"{datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')}_evaluate_pipeline.json"
     out_file.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    log_experiment(run_type="evaluate_pipeline", metrics=result)
     print(json.dumps(result, indent=2))
     print(f"[Eval] Saved run artifact: {out_file}")
     return result
@@ -63,4 +70,3 @@ def evaluate() -> dict:
 
 if __name__ == "__main__":
     evaluate()
-
