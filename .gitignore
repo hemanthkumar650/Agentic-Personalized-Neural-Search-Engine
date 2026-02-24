@@ -1,0 +1,21 @@
+﻿# Python runtime junk
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Frontend build/deps
+frontend/node_modules/
+frontend/.next/
+node_modules/
+.next/
+
+# Local secrets
+frontend/.env.local
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,22 @@
+{
+  "run_id": "20260223T224403Z",
+  "run_name": "train_ranker",
+  "timestamp_utc": "2026-02-23T22:44:06.911446+00:00",
+  "config": {
+    "num_negatives_per_query": 10,
+    "min_positive_relevance": 1
+  },
+  "dataset": {
+    "num_training_queries": 10,
+    "num_documents": 127,
+    "num_positives": 101,
+    "num_negatives": 26,
+    "num_features": 9
+  },
+  "artifacts": {
+    "ranker": "models\\ranker.lgb",
+    "user_embeddings": "models\\user_embeddings.pkl",
+    "user_cat_prefs": "models\\user_cat_prefs.pkl",
+    "product_popularity": "models\\product_popularity.pkl"
+  }
+}
